@@ -13,6 +13,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.CursorLoader;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -44,6 +49,14 @@ public class Utils {
 
     public static int dpToPx(int dp) {
         return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+    public static boolean isEmailValid(String email) {
+        //TODO: Replace this with your own logic
+        return email.contains("@");
+    }
+    public static boolean isPasswordValid(String password) {
+        //TODO: Replace this with your own logic
+        return password.length() > 3;
     }
 
     public static int getScreenHeight(Context c) {
@@ -129,6 +142,27 @@ public class Utils {
     public static String getFormatDateStr(final Date date){
         if(null == date)return null;
         return DateFormat.getDateInstance(DateFormat.DEFAULT).format(date);
+    }
+
+    public static void toFragment(@NonNull Fragment fragment, @NonNull Fragment target, int frameId){
+        try{
+            FragmentManager fragmentManager= fragment.getFragmentManager();
+            FragmentTransaction transition=fragmentManager.beginTransaction()
+                    .replace(frameId, target, target.getClass().getName());
+            transition.addToBackStack(null);
+            transition.commit();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void toChildFragment(@NonNull Fragment fragment,@NonNull Fragment target,@Nullable int frameId){
+        try{
+            fragment.getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(frameId, target, target.getClass().getName()).commit();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public static Date formatDateFromStr(final String dateStr){

@@ -48,4 +48,20 @@
     <string name="s_i_n_tho_i1">Số điện thoại:</string>
     <string name="ng_ph_ng_qu_n_t_nh_th_nh_ph">Đường-Phường-Quận-Tỉnh/Thành Phố</string>
     <string name="a_ch1">Địa chỉ:</string>
+    <string name="btn_register">Đăng ký</string>
+    <string name="hint_et_email">Email</string>
+    <string name="hint_et_pass">Password</string>
+    <string name="checkbox_remember">Ghi nhớ</string>
+    <string name="btn_login">Đăng nhập</string>
+    <string name="tv_restore">Quên mật khẩu?</string>
+    <string name="hint_et_name">Tên</string>
+    <string name="tv_register">Đăng ký</string>
+    <string name="btn_restore">Lấy lại mật khẩu</string>
+    <string name="chupthuvien">Thư viện</string>
+    <string name="chupcamera">Máy ảnh</string>
+    <string name="huy_dk">Huỷ</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
 </resources>

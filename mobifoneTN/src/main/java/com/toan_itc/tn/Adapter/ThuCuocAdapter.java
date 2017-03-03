@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.toan_itc.tn.Lib.RippleViewLinear;
+import com.toan_itc.tn.Lib.ripeffect.RippleViewLinear;
 import com.toan_itc.tn.Model.DStinKMthucuoc;
 import com.toan_itc.tn.R;
 import com.toan_itc.tn.Utils.Utils;

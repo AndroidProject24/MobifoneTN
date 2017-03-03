@@ -33,12 +33,14 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.toan_itc.tn.Api.RestClient;
 import com.toan_itc.tn.Fragment.DichvukhacFragment;
 import com.toan_itc.tn.Fragment.GopYFragment;
+import com.toan_itc.tn.Fragment.KhoSoFragment;
 import com.toan_itc.tn.Fragment.LienHeFragment;
 import com.toan_itc.tn.Fragment.MainFragment;
 import com.toan_itc.tn.Fragment.TheCaoFragment;
 import com.toan_itc.tn.Fragment.ThongtinKHFragment;
 import com.toan_itc.tn.Fragment.ThuCuocFragment;
-import com.toan_itc.tn.Lib.SystemBarTintManager;
+import com.toan_itc.tn.Fragment.UpAnhFragment;
+import com.toan_itc.tn.Lib.ripeffect.SystemBarTintManager;
 import com.toan_itc.tn.Model.Menu;
 import com.toan_itc.tn.Network.ApiController;
 import com.toan_itc.tn.R;
@@ -66,7 +68,7 @@ public class BaseActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         FragmentManager fragmentManager=getSupportFragmentManager();
         FragmentTransaction transaction=fragmentManager.beginTransaction();
-        transaction.add(R.id.layout_container, new MainFragment(this, ApiController.MENU1), MainFragment.class.getName());
+        transaction.add(R.id.layout_container, new MainFragment(this), MainFragment.class.getName());
         transaction.addToBackStack(null);
         transaction.commit();
     }
@@ -189,7 +191,7 @@ public class BaseActivity extends AppCompatActivity{
                     if (drawerItem != null) {
                         if (drawerItem.getIdentifier() == 1) {
                             sreen=ApiController.MENU1;
-                            transaction.replace(R.id.layout_container, new MainFragment(this,sreen),MainFragment.class.getName());
+                            transaction.replace(R.id.layout_container, new MainFragment(this),MainFragment.class.getName());
                         } else if (drawerItem.getIdentifier() == 2) {
                             sreen=ApiController.MENU2;
                             transaction.replace(R.id.layout_container, new ThuCuocFragment(this,sreen),ThuCuocFragment.class.getName());
@@ -207,13 +209,14 @@ public class BaseActivity extends AppCompatActivity{
                             transaction.replace(R.id.layout_container, new GopYFragment(this), GopYFragment.class.getName());
                         } else if (drawerItem.getIdentifier() == 7) {
                             sreen=0;
-                            transaction.replace(R.id.layout_container, new LienHeFragment(), LienHeFragment.class.getName());
+                           // transaction.replace(R.id.layout_container, new LienHeFragment(), LienHeFragment.class.getName());
+                            transaction.replace(R.id.layout_container, new UpAnhFragment(), UpAnhFragment.class.getName());
                         }else if (drawerItem.getIdentifier() == 2000) {
                             sreen=ApiController.MENU1;
-                            transaction.replace(R.id.layout_container, new MainFragment(this,sreen),MainFragment.class.getName());
+                            transaction.replace(R.id.layout_container, new KhoSoFragment(this,sreen),KhoSoFragment.class.getName());
                         } else if (drawerItem.getIdentifier() == 2001) {
                             sreen=ApiController.MENU5;
-                            transaction.replace(R.id.layout_container, new MainFragment(this,sreen),MainFragment.class.getName());
+                            transaction.replace(R.id.layout_container, new KhoSoFragment(this,sreen),KhoSoFragment.class.getName());
                         }
                         if (transaction != null) {
                             transaction.addToBackStack(null);
@@ -252,7 +255,7 @@ public class BaseActivity extends AppCompatActivity{
     }
     private void _removeWorkerFragments() {
         Fragment frag = getSupportFragmentManager()//
-                .findFragmentByTag(MainFragment.class.getName());
+                .findFragmentByTag(KhoSoFragment.class.getName());
         if (frag != null) {
             getSupportFragmentManager().beginTransaction().remove(frag).commit();
         }
@@ -288,13 +291,18 @@ public class BaseActivity extends AppCompatActivity{
         }
     }
     protected void Exit(){
-        if (back_pressed + 3000 > System.currentTimeMillis()){
-            finish();
-            overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
-        }
-        else{
-            Snackbar.make(mToolbar,"Bấm Back lần nữa để thoát ứng dụng!", Snackbar.LENGTH_LONG).show();
-            back_pressed = System.currentTimeMillis();
+        FragmentManager fm = getSupportFragmentManager();
+        int count=fm.getBackStackEntryCount();
+        if (count > 1) {
+            fm.popBackStack();
+        }else {
+            if (back_pressed + 3000 > System.currentTimeMillis()) {
+                finish();
+                overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+            } else {
+                Snackbar.make(mToolbar, "Bấm Back lần nữa để thoát ứng dụng!", Snackbar.LENGTH_LONG).show();
+                back_pressed = System.currentTimeMillis();
+            }
         }
     }
     @Override

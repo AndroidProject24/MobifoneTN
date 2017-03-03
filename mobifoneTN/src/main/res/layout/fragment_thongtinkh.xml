@@ -52,7 +52,7 @@
         style="@style/style_edittext"
         android:hint="@string/qu_n"
         app:met_clearButton="true" />
-    <com.toan_itc.tn.Lib.RippleView
+    <com.toan_itc.tn.Lib.ripeffect.RippleView
         android:id="@+id/btn_send"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
@@ -66,5 +66,5 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:text="@string/g_i"/>
-    </com.toan_itc.tn.Lib.RippleView>
+    </com.toan_itc.tn.Lib.ripeffect.RippleView>
 </LinearLayout>

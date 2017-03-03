@@ -23,4 +23,6 @@
     <color name="fab_normal2">#FFEB3B</color>
     <color name="fab_Pressed2">#FBC02D</color>
     <color name="fab_Ripple2">#F57F17</color>
+    <color name="edittext_floating">#B0BEC5</color>
+    <color name="bpDarker_blue">#0099cc</color>
 </resources>

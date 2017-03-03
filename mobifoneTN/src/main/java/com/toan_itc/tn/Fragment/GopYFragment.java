@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.toan_itc.tn.Api.RestClient;
-import com.toan_itc.tn.Lib.RippleView;
+import com.toan_itc.tn.Lib.ripeffect.RippleView;
 import com.toan_itc.tn.R;
 import com.toan_itc.tn.Service.PostDataService;
 import com.toan_itc.tn.Utils.Utils;

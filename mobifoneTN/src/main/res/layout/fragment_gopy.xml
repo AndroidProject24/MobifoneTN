@@ -26,7 +26,7 @@
         app:met_minCharacters="10"
         app:met_primaryColor="@color/colorPrimaryDark"
         app:met_singleLineEllipsis="false" />
-    <com.toan_itc.tn.Lib.RippleView
+    <com.toan_itc.tn.Lib.ripeffect.RippleView
         android:id="@+id/btn_send"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
@@ -40,5 +40,5 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:text="@string/g_i"/>
-    </com.toan_itc.tn.Lib.RippleView>
+    </com.toan_itc.tn.Lib.ripeffect.RippleView>
 </LinearLayout>

@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.toan_itc.tn.Lib.RippleViewLinear;
+import com.toan_itc.tn.Lib.ripeffect.RippleViewLinear;
 import com.toan_itc.tn.Model.DSlienheThucuoc;
 import com.toan_itc.tn.R;
 import com.toan_itc.tn.Utils.Utils;
