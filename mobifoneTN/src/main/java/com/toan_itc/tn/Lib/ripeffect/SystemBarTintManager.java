@@ -1,4 +1,4 @@
-package com.toan_itc.tn.Lib;
+package com.toan_itc.tn.Lib.ripeffect;
 
 
 import android.annotation.SuppressLint;
